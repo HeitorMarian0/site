@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@300;500;400;700&family=Sarala&family=Titan+One&display=swap');
+@import "compass";
 
 * {
     margin: 0;
@@ -58,33 +59,53 @@ body {
     align-items: center;
     justify-content: center;
     gap: 250px;
-    margin-bottom: 258px;
+    margin-bottom: 473px;
+
 }
+
 
 .apresentacao {
-    padding-left: 20px;
-    padding-top: 180px;
-}
-
-.apresentacao-perfil {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-weight: 300;
-    font-size: 32px;
+    font-size: 60px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    display: flex;
+    padding-top: 400px;
+    box-sizing: border-box;
+
 }
 
-.apresentacao-nome {
-    padding-top: 5px;
-    padding-left: 120px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 33px;
+.static-txt {
+    font-size: 60px;
+    padding-right: 5px;
 }
 
-.perfil-imagem {
-    padding-top: 150px;
-    height: 700px;
+.static-txt2 {
+    font-size: 60px;
+    padding-left: 5px;
 }
 
+
+#text::after {
+    content: '|';
+    font-size: 55px;
+    margin-left: 5px;
+    animation: blink 1.0s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
 
 
 .perfil-escrito {
@@ -97,6 +118,30 @@ body {
     font-size: 100%;
     background: #9d9692;
 
+}
+
+#element {
+    padding-top: 200px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+}
+
+#element::after {
+    content: '|';
+    font-size: 40px;
+    margin-left: 5px;
+    animation: blink 1.0s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .imagem-sobre {
