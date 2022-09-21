@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Um pouquinho sobre sonhos e projetos">
+    <title>Heitor Mariano - About me</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <a href="#home"><img class="icone-cabecalho" src="./img/HM.svg" alt="HM"></a>
+        <nav class="menu-cabecalho-principal">
+            <a href="#home" class="cabecalho-menu-item">Início</a>
+            <a href="#about" class="cabecalho-menu-item">Sobre</a>
+            <a href="#proj" class="cabecalho-menu-item">Projetos</a>
+            <a href="#contact" class="cabecalho-menu-item">Contato</a>
+        </nav>
+    </header>
+
+    <main class="conteudo">
+        <section id="home" class="perfil-conteudo">
+            <div class="apresentacao">
+                <h2 class="apresentacao-perfil">Oi! Eu sou o</h2>
+                <h1 class="apresentacao-nome">HEITOR MARIANO</h1>
+            </div>
+            <img class="perfil-imagem" src="./img/Programmer.svg" alt="imagem do programador">
+        </section>
+        <section class="perfil-escrito">
+            <img class="imagem-sobre" src="./img/about-me.svg" alt="Imagem sobre mim">
+
+            <div id="about" class="perfil-escrito2">
+                <h3 class="titulo-perfil">Um pouco sobre mim...</h3>
+                <p class="paragrafo-perfil1">Meu nome é Heitor Mariano, tenho 20 anos e moro na cidade de Santo André,
+                    SP.
+                </p>
+                <p class="paragrafo-perfil2">Atualmente cursando Engenharia da Computação no <b>Instituto Mauá de
+                        Tecnologia</b>.
+                </p>
+                <p class="paragrafo-perfil3">Bem novo, fui apresentado a tecnologia, por meio de jogos e familiares que
+                    trabalhavam na área. Por isso, sempre foi um sonho conseguir produzir e inovar por meio dela.</p>
+                <p class="paragrafo-perfil4">Com uma bagagem intermediária de <b>Python</b> e <b>C</b> , procuro
+                    expandir os
+                    conhecimentos em
+                    <b>HTML</b>, <b>JavaScript</b> e <b>CSS</b>. Além disso, me considero muito criativo e possuo
+                    bastante
+                    experiência em
+                    trabalhos em grupo.
+                </p>
+            </div>
+
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="text-footer"><b>Em desenvolvimento por Heitor Mariano</b></p>
+    </footer>
+</body>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+
+
+</html>
