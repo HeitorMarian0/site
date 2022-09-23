@@ -49,11 +49,10 @@ body {
     font-weight: 600;
 }
 
-.conteudo {
-    margin-bottom: 48px;
-}
 
 .perfil-conteudo {
+    height: 475px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -109,11 +108,10 @@ body {
 
 
 .perfil-escrito {
-    margin-top: 158px;
+    height: 950px;
+    width: 100%;
     border-top: 2.0px solid black;
-    border-bottom: 2.0px solid black;
     display: flex;
-    flex-direction: row;
     align-items: center;
     font-size: 100%;
     background: #9d9692;
@@ -145,7 +143,6 @@ body {
 }
 
 .imagem-sobre {
-    padding-top: 30px;
     padding-left: 150px;
     height: 700px;
 
@@ -153,11 +150,9 @@ body {
 
 
 .titulo-perfil {
-    padding-top: 200px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 40px;
-
 }
 
 .perfil-escrito2 {
@@ -204,19 +199,200 @@ body {
     text-align: justify;
 }
 
-.footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.conteudo-projetos {
+    height: 950px;
+    width: 100%;
+    border-top: 2px solid black;
+    background-color: rgb(75, 69, 69);
 
 
 }
+
+.titulo-projetos {
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 70px;
+    justify-content: center;
+    margin-top: 90px;
+
+}
+
+$duration: 0.4s;
+$border-size: 2px;
+$border-color: #517180;
+$button-width: 200px;
+$button-height: 55px;
+$size-radius: 5px;
+
+$mainFont: 'inter', sans-serif;
+
+
+@mixin border-radius($size-radius, $sideH) {
+    @if $sideH  !='all' {
+        -webkit-border-top-#{$sideH}-radius: $size-radius;
+        -moz-border-top-#{$sideH}-radius: $size-radius;
+        border-top-#{$sideH}-radius: $size-radius;
+        -webkit-border-bottom-#{$sideH}-radius: $size-radius;
+        -moz-border-bottom-#{$sideH}-radius: $size-radius;
+        border-bottom-#{$sideH}-radius: $size-radius;
+    }
+
+    @else if $sideH =='all' {
+        -webkit-border-radius: $size-radius;
+        -moz-border-radius: $size-radius;
+        border-radius: $size-radius;
+    }
+}
+
+@mixin sub-button {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    display: block;
+    opacity: 0;
+}
+
+h1 {
+    font-family: $mainFont;
+    text-align: center;
+    padding-top: 20px;
+    color: #000;
+}
+
+p {}
+
+.button {
+    width: $button-width;
+    margin: 100px auto;
+    position: relative;
+    border: solid 2px #cbd4d9;
+    height: $button-height;
+    @include border-radius($size-radius, 'all');
+
+    &:hover .hoverBtn:before,
+    &:hover .hoverBtn:after {
+        opacity: 1;
+        -webkit-animation: open $duration;
+        /* Chrome, Safari, Opera */
+        animation: open $duration;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-direction: normal;
+    }
+
+    &:hover .hoverBtn-bottom:before,
+    &:hover .hoverBtn-bottom:after {
+        opacity: 1;
+        -webkit-animation: openB $duration;
+        /* Chrome, Safari, Opera */
+        animation: openB $duration;
+        animation-delay: $duration;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+        animation-direction: normal;
+    }
+
+    p {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+        color: #587785;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 22px;
+        line-height: $button-height;
+    }
+
+}
+
+.hoverBtn {
+    width: 100%;
+    height: $button-height;
+    position: absolute;
+    top: -1px;
+
+    &:before {
+        @include sub-button;
+        border-top: solid $border-size $border-color;
+        border-left: solid $border-size $border-color;
+        @include border-radius($size-radius, 'left');
+        right: $button-width/2;
+    }
+
+    &:after {
+        @include sub-button;
+        border-top: solid $border-size $border-color;
+        border-right: solid $border-size $border-color;
+        @include border-radius($size-radius, 'right');
+        left: $button-width/2;
+    }
+}
+
+.hoverBtn-bottom {
+    width: 100%;
+    height: $button-height;
+    position: absolute;
+
+
+    &:before {
+        @include sub-button;
+        height: $button-height;
+        border-bottom: solid $border-size $border-color;
+        @include border-radius($size-radius, 'right');
+        right: 0;
+    }
+
+    &:after {
+        @include sub-button;
+        height: $button-height;
+        border-bottom: solid $border-size $border-color;
+        @include border-radius($size-radius, 'left');
+        left: 0;
+    }
+}
+
+
+
+@keyframes open {
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    50% {
+        width: $button-width/2;
+        height: 0;
+    }
+
+    100% {
+        width: $button-width/2;
+        height: $button-height;
+    }
+}
+
+@keyframes openB {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: $button-width/2;
+    }
+}
+
 
 .text-footer {
     font-family: 'Sarala', sans-serif;
     font-size: 22px;
     font-weight: 100;
-    padding-left: 50px;
-    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid black;
+
+
 
 }
