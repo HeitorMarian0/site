@@ -19,13 +19,13 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 690px;
-    padding: 15px;
+    gap: 1200px;
+    padding: 40px;
     background: transparent;
     backdrop-filter: blur(5px);
     width: 100%;
-    height: 80px;
-    border-bottom: 2.0px solid black;
+    height: 60px;
+
     position: fixed;
 
 }
@@ -45,10 +45,59 @@ body {
 .cabecalho-menu-item {
     font-family: 'Titan One', cursive;
     color: black;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
 }
 
+
+a.cabecalho-menu-item:hover,
+a.cabecalho-menu-item:focus {
+    -webkit-animation: pulse 1s;
+    animation: pulse 1s;
+    box-shadow: 0 0 0 0.5em transparent;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+
+a.cabecalho-menu-item {
+    --color: #000000;
+    --hover: #000000;
+}
+
+a.cabecalho-menu-item {
+    color: var(--color);
+    transition: 0.15s;
+}
+
+a.cabecalho-menu-item:hover,
+a.cabecalho-menu-item:focus {
+    border-color: var(--hover);
+    color: rgb(255, 255, 255);
+}
+
+a.cabecalho-menu-item {
+    background: none;
+    border: 2px solid;
+    font-family: 'Titan One', cursive;
+    line-height: 1;
+    margin: 0.01em;
+    padding: 0.5em 1em;
+}
+
+code {
+    color: #e4cb58;
+    font: inherit;
+}
 
 .perfil-conteudo {
     height: 475px;
@@ -108,9 +157,9 @@ body {
 
 
 .perfil-escrito {
-    height: 950px;
+    height: 956px;
     width: 100%;
-    border-top: 2.0px solid black;
+    border-top: 3.0px solid black;
     display: flex;
     align-items: center;
     font-size: 100%;
@@ -218,171 +267,7 @@ body {
 
 }
 
-$duration: 0.4s;
-$border-size: 2px;
-$border-color: #517180;
-$button-width: 200px;
-$button-height: 55px;
-$size-radius: 5px;
 
-$mainFont: 'inter', sans-serif;
-
-
-@mixin border-radius($size-radius, $sideH) {
-    @if $sideH  !='all' {
-        -webkit-border-top-#{$sideH}-radius: $size-radius;
-        -moz-border-top-#{$sideH}-radius: $size-radius;
-        border-top-#{$sideH}-radius: $size-radius;
-        -webkit-border-bottom-#{$sideH}-radius: $size-radius;
-        -moz-border-bottom-#{$sideH}-radius: $size-radius;
-        border-bottom-#{$sideH}-radius: $size-radius;
-    }
-
-    @else if $sideH =='all' {
-        -webkit-border-radius: $size-radius;
-        -moz-border-radius: $size-radius;
-        border-radius: $size-radius;
-    }
-}
-
-@mixin sub-button {
-    position: absolute;
-    content: '';
-    height: 0;
-    width: 0;
-    display: block;
-    opacity: 0;
-}
-
-h1 {
-    font-family: $mainFont;
-    text-align: center;
-    padding-top: 20px;
-    color: #000;
-}
-
-p {}
-
-.button {
-    width: $button-width;
-    margin: 100px auto;
-    position: relative;
-    border: solid 2px #cbd4d9;
-    height: $button-height;
-    @include border-radius($size-radius, 'all');
-
-    &:hover .hoverBtn:before,
-    &:hover .hoverBtn:after {
-        opacity: 1;
-        -webkit-animation: open $duration;
-        /* Chrome, Safari, Opera */
-        animation: open $duration;
-        animation-fill-mode: forwards;
-        animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-        animation-direction: normal;
-    }
-
-    &:hover .hoverBtn-bottom:before,
-    &:hover .hoverBtn-bottom:after {
-        opacity: 1;
-        -webkit-animation: openB $duration;
-        /* Chrome, Safari, Opera */
-        animation: openB $duration;
-        animation-delay: $duration;
-        animation-fill-mode: forwards;
-        animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
-        animation-direction: normal;
-    }
-
-    p {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        text-align: center;
-        color: #587785;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: 22px;
-        line-height: $button-height;
-    }
-
-}
-
-.hoverBtn {
-    width: 100%;
-    height: $button-height;
-    position: absolute;
-    top: -1px;
-
-    &:before {
-        @include sub-button;
-        border-top: solid $border-size $border-color;
-        border-left: solid $border-size $border-color;
-        @include border-radius($size-radius, 'left');
-        right: $button-width/2;
-    }
-
-    &:after {
-        @include sub-button;
-        border-top: solid $border-size $border-color;
-        border-right: solid $border-size $border-color;
-        @include border-radius($size-radius, 'right');
-        left: $button-width/2;
-    }
-}
-
-.hoverBtn-bottom {
-    width: 100%;
-    height: $button-height;
-    position: absolute;
-
-
-    &:before {
-        @include sub-button;
-        height: $button-height;
-        border-bottom: solid $border-size $border-color;
-        @include border-radius($size-radius, 'right');
-        right: 0;
-    }
-
-    &:after {
-        @include sub-button;
-        height: $button-height;
-        border-bottom: solid $border-size $border-color;
-        @include border-radius($size-radius, 'left');
-        left: 0;
-    }
-}
-
-
-
-@keyframes open {
-    0% {
-        width: 0;
-        height: 0;
-    }
-
-    50% {
-        width: $button-width/2;
-        height: 0;
-    }
-
-    100% {
-        width: $button-width/2;
-        height: $button-height;
-    }
-}
-
-@keyframes openB {
-    0% {
-        width: 0px;
-    }
-
-    100% {
-        width: $button-width/2;
-    }
-}
 
 
 .text-footer {

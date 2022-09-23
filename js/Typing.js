@@ -1,5 +1,5 @@
 const textDisplay = document.getElementById('text')
-const frases = ['Olá, seja bem vindo!', 'Me chamo Heitor', 'Navegue e saiba mais sobre mim']
+const frases = ['Olá, seja bem vindo!', 'Meu nome é Heitor Mariano', 'Fique à vontade para me conhecer']
 let i = 0
 let j = 0
 let fraseAtual = []
@@ -42,8 +42,8 @@ function loop() {
         }
     }
     const speedUp = Math.random() * (80 - 50) + 50
-    const normalSpeed = Math.random() * (300 - 200) + 200
-    const time = isEnd ? 2000 : isDeleting ? speedUp : normalSpeed
+    const normalSpeed = Math.random() * (90 - 80) + 80
+    const time = isEnd ? 2500 : isDeleting ? speedUp : normalSpeed
     setTimeout(loop, time)
 }
 
