@@ -25,19 +25,17 @@ body {
     backdrop-filter: blur(5px);
     width: 100%;
     height: 60px;
-
     position: fixed;
-
 }
 
 .icone-cabecalho {
     height: 25px;
-    padding-left: 22px;
+    padding-left: 10px;
 }
 
 .menu-cabecalho-principal {
     display: flex;
-    gap: 22px;
+    gap: 10px;
     padding-right: 50px;
 
 }
@@ -100,7 +98,7 @@ code {
 }
 
 .perfil-conteudo {
-    height: 475px;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -108,7 +106,6 @@ code {
     justify-content: center;
     gap: 250px;
     margin-bottom: 473px;
-
 }
 
 
@@ -124,7 +121,6 @@ code {
     display: flex;
     padding-top: 400px;
     box-sizing: border-box;
-
 }
 
 .static-txt {
@@ -157,11 +153,9 @@ code {
 
 
 .perfil-escrito {
-    height: 956px;
+    height: 100%;
     width: 100%;
     border-top: 3.0px solid black;
-    display: flex;
-    align-items: center;
     font-size: 100%;
     background: #9d9692;
 
@@ -191,61 +185,43 @@ code {
     }
 }
 
-.imagem-sobre {
-    padding-left: 150px;
-    height: 700px;
-
+.perfil-escrito2 {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    align-items: center;
 }
 
+.imagem-sobre {
+    padding-top: 40px;
+    height: 650px;
+}
 
-.titulo-perfil {
+.perfil {
+    margin-bottom: 530px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 60px;
+    padding-left: 150px;
+    gap: 50px;
+}
+
+h3.titulo-perfil {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 40px;
+    margin-bottom: 50px;
 }
 
-.perfil-escrito2 {
-    display: flex;
-    flex-direction: column;
-    padding-left: 50px;
-    padding-top: 120px;
-    gap: 20px;
-    margin-bottom: 290px;
-}
-
-
-
-.paragrafo-perfil1 {
-    padding-left: 2px;
+p.paragrafo-perfil {
+    width: 90%;
     font-family: 'Sarala', sans-serif;
     font-size: 22px;
     font-weight: 500;
-}
-
-.paragrafo-perfil2 {
-    padding-left: 2px;
-    font-family: 'Sarala', sans-serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: black;
-}
-
-.paragrafo-perfil3 {
-    padding-left: 2px;
-    font-family: 'Sarala', sans-serif;
-    font-size: 22px;
-    font-weight: 500;
-    padding-right: 230px;
+    margin-bottom: 20px;
     text-align: justify;
-}
 
-.paragrafo-perfil4 {
-    padding-left: 2px;
-    font-family: 'Sarala', sans-serif;
-    font-size: 22px;
-    font-weight: 500;
-    padding-right: 230px;
-    text-align: justify;
 }
 
 .conteudo-projetos {
@@ -253,8 +229,10 @@ code {
     width: 100%;
     border-top: 2px solid black;
     background-color: rgb(75, 69, 69);
+}
 
-
+.projetos {
+    margin-bottom: 30px;
 }
 
 .titulo-projetos {
@@ -264,8 +242,83 @@ code {
     font-size: 70px;
     justify-content: center;
     margin-top: 90px;
-
 }
+
+#container {
+    height: 700px;
+    border: 10px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+}
+
+.proj2 {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.proj2:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 4px;
+    background: linear-gradient(120deg, #00F260, #0575E6, #00F260);
+    background-size: 300% 300%;
+    clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) calc(100% - 3px), 3px calc(100% - 3px), 3px 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+.proj2.in:after {
+    animation: frame-enter 1s forwards ease-in-out reverse, gradient-animation 4s ease-in-out infinite;
+}
+
+/* motion */
+@keyframes gradient-animation {
+    0% {
+        background-position: 15% 0%;
+    }
+
+    50% {
+        background-position: 85% 100%;
+    }
+
+    100% {
+        background-position: 15% 0%;
+    }
+}
+
+@keyframes frame-enter {
+    0% {
+        clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) calc(100% - 3px), 3px calc(100% - 3px), 3px 100%, 100% 100%, 100% 0%, 0% 0%);
+    }
+
+    25% {
+        clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 100%, 100% 100%, 100% 0%, 0% 0%);
+    }
+
+    50% {
+        clip-path: polygon(0% 100%, 3px 100%, 3px 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 3px, 100% 0%, 0% 0%);
+    }
+
+    75% {
+        -webkit-clip-path: polygon(0% 100%, 3px 100%, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 0%, 0% 0%);
+    }
+
+    100% {
+        -webkit-clip-path: polygon(0% 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 3px 100%, 0% 100%);
+    }
+}
+
+
 
 
 
@@ -277,7 +330,4 @@ code {
     display: flex;
     justify-content: center;
     border-top: 2px solid black;
-
-
-
 }
